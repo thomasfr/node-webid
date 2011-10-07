@@ -11,6 +11,6 @@ var options  = {
 https.createServer(options, function(req, res) {
   var peerCert = req.connection.getPeerCertificate(); // this is the client certificate
   res.writeHead(200);
+  res.end(util.inspect(peerCert.subjectaltname));
   console.log(util.inspect(peerCert,5));
-  res.end(peerCert.subject.subjectaltname);
 }).listen(8000);
